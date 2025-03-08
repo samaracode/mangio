@@ -10,8 +10,8 @@ module Types
       context.schema.object_from_id(id, context)
     end
 
-    field :nodes, [Types::NodeType, null: true], null: true, description: "Fetches a list of objects given a list of IDs." do
-      argument :ids, [ID], required: true, description: "IDs of the objects."
+    field :nodes, [ Types::NodeType, null: true ], null: true, description: "Fetches a list of objects given a list of IDs." do
+      argument :ids, [ ID ], required: true, description: "IDs of the objects."
     end
 
     def nodes(ids:)
@@ -26,7 +26,7 @@ module Types
 
     # Restaurants
     # Get all
-    field :restaurants, [Types::Mangio::RestaurantType], null: false, description: "Returns a list of restaurants"
+    field :restaurants, [ Types::Mangio::RestaurantType ], null: false, description: "Returns a list of restaurants"
 
     def restaurants
       Restaurant.all
@@ -40,6 +40,5 @@ module Types
     def restaurant(id:)
       Restaurant.find(id)
     end
-    
   end
 end
